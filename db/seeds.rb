@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Player.destroy_all
+Score.destroy_all
+
+daniel = Player.create(name: "Daniel")
+score = Score.new(score_value: 100, player_id: daniel.id)
+score.save
