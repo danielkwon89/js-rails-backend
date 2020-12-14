@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_14_014038) do
+ActiveRecord::Schema.define(version: 2020_12_14_031648) do
 
   create_table "players", force: :cascade do |t|
     t.string "name"
@@ -20,9 +20,11 @@ ActiveRecord::Schema.define(version: 2020_12_14_014038) do
 
   create_table "scores", force: :cascade do |t|
     t.integer "score_value"
-    t.integer "player_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "player_id"
+    t.index ["player_id"], name: "index_scores_on_player_id"
   end
 
+  add_foreign_key "scores", "players"
 end
