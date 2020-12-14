@@ -10,5 +10,7 @@ Player.destroy_all
 Score.destroy_all
 
 daniel = Player.create(name: "Daniel")
-score = Score.new(score_value: 100, player_id: daniel.id)
-score.save
+score_1 = Score.new(score_value: 100, player_id: daniel.id)
+score_1.save
+score_2 = Score.new(score_value: 99, player_id: daniel.id)
+score_2.save
