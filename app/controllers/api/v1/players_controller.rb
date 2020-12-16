@@ -8,11 +8,14 @@ class Api::V1::PlayersController < ApplicationController
     def create
         player = Player.new(player_params)
 
-        # byebug
-        # This route needs to be updated to use the JSON serializer
+        existing_player = Player.all.find_by(name: player.name)
 
-        if player.save
-            render json: player, status: :accepted
+        # byebug
+
+        if existing_player
+            render json: PlayerSerializer.new(existing_player), status: :accepted
+        elsif player.save
+            render json: PlayerSerializer.new(player), status: :accepted
         else
             render json: {errors: player.errors.full_messages}, status: :unprocessable_entity
         end
