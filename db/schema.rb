@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_12_14_031648) do
 
   create_table "scores", force: :cascade do |t|
     t.integer "score_value"
+    t.string "quizDifficulty"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "player_id", null: false

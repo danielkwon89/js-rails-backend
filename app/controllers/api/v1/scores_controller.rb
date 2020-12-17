@@ -16,7 +16,7 @@ class Api::V1::ScoresController < ApplicationController
         # This route needs to be updated to use the JSON serializer
 
         if score.save
-            render json: score, status: :accepted
+            render json: ScoreSerializer.new(score), status: :accepted
         else
             render json: {errors: score.errors.full_messages}, status: :unprocessable_entity
         end
@@ -25,6 +25,6 @@ class Api::V1::ScoresController < ApplicationController
     private
 
     def score_params
-        params.require(:score).permit(:score_value, :player_id)
+        params.require(:score).permit(:score_value, :player_id, :quizDifficulty)
     end
 end

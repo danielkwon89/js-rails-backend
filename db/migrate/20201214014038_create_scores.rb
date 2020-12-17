@@ -3,6 +3,7 @@ class CreateScores < ActiveRecord::Migration[6.0]
     create_table :scores do |t|
       t.integer :score_value
       t.integer :player_id
+      t.string :quizDifficulty
       
       t.timestamps
     end
