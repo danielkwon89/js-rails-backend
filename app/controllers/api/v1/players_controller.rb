@@ -10,8 +10,6 @@ class Api::V1::PlayersController < ApplicationController
 
         existing_player = Player.all.find_by(name: player.name)
 
-        # byebug
-
         if existing_player
             render json: PlayerSerializer.new(existing_player), status: :accepted
         elsif player.save
