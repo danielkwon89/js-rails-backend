@@ -1,3 +1,3 @@
 # README
 
-Front-end Repo: https://github.com/danielkwon89/js-rails-frontend
+Front-end repo: https://github.com/danielkwon89/js-rails-frontend
