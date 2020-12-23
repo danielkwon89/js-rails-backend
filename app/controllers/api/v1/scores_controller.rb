@@ -13,8 +13,6 @@ class Api::V1::ScoresController < ApplicationController
     def create
         score = Score.new(score_params)
 
-        # This route needs to be updated to use the JSON serializer
-
         if score.save
             render json: ScoreSerializer.new(score), status: :accepted
         else
